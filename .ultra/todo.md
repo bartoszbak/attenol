@@ -13,6 +13,6 @@
 ## Release 1.0
 
 - [x] Add the official app icon
-- [ ] Sign with Developer ID and notarize
-- [ ] Build the DMG
+- [x] Sign with Developer ID and notarize
+- [x] Build the DMG
 - [ ] Publish the GitHub release
