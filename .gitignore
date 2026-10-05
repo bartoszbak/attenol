@@ -1,0 +1,8 @@
+# Ultra: per-machine bookmarks and personal chat transcripts. The todo list beside
+# them is the plan and stays tracked.
+.ultra/chats/
+.ultra/context.json
+
+# Xcode
+build/
+xcuserdata/

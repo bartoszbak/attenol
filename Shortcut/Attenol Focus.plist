@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+	Source of the "Attenol Focus" shortcut:
+
+		If Shortcut Input has any value
+			Turn Do Not Disturb On until Turned Off
+		Otherwise
+			Turn Do Not Disturb Off
+
+	Shortcuts only imports signed files; see sign.sh.
+-->
+<plist version="1.0">
+<dict>
+	<key>WFWorkflowMinimumClientVersion</key>
+	<integer>900</integer>
+	<key>WFWorkflowMinimumClientVersionString</key>
+	<string>900</string>
+	<key>WFWorkflowClientVersion</key>
+	<string>2607.0.2</string>
+	<key>WFWorkflowIcon</key>
+	<dict>
+		<key>WFWorkflowIconStartColor</key>
+		<integer>2846468607</integer>
+		<key>WFWorkflowIconGlyphNumber</key>
+		<integer>59511</integer>
+	</dict>
+	<key>WFWorkflowTypes</key>
+	<array/>
+	<key>WFQuickActionSurfaces</key>
+	<array/>
+	<key>WFWorkflowImportQuestions</key>
+	<array/>
+	<key>WFWorkflowHasShortcutInputVariables</key>
+	<true/>
+	<key>WFWorkflowHasOutputFallback</key>
+	<false/>
+	<key>WFWorkflowInputContentItemClasses</key>
+	<array>
+		<string>WFGenericFileContentItem</string>
+		<string>WFStringContentItem</string>
+	</array>
+	<key>WFWorkflowOutputContentItemClasses</key>
+	<array/>
+	<key>WFWorkflowActions</key>
+	<array>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.conditional</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>6F2B6C0E-7C55-4E0B-9A53-2D1C4F0A9B11</string>
+				<key>WFControlFlowMode</key>
+				<integer>0</integer>
+				<key>WFCondition</key>
+				<integer>100</integer>
+				<key>WFInput</key>
+				<dict>
+					<key>Type</key>
+					<string>Variable</string>
+					<key>Variable</key>
+					<dict>
+						<key>WFSerializationType</key>
+						<string>WFTextTokenAttachment</string>
+						<key>Value</key>
+						<dict>
+							<key>Type</key>
+							<string>ExtensionInput</string>
+						</dict>
+					</dict>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.dnd.set</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>Enabled</key>
+				<integer>1</integer>
+				<key>AssertionType</key>
+				<string>Turned Off</string>
+				<key>FocusModes</key>
+				<dict>
+					<key>Identifier</key>
+					<string>com.apple.donotdisturb.mode.default</string>
+					<key>DisplayString</key>
+					<string>Do Not Disturb</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.conditional</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>6F2B6C0E-7C55-4E0B-9A53-2D1C4F0A9B11</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.dnd.set</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>Enabled</key>
+				<integer>0</integer>
+				<key>FocusModes</key>
+				<dict>
+					<key>Identifier</key>
+					<string>com.apple.donotdisturb.mode.default</string>
+					<key>DisplayString</key>
+					<string>Do Not Disturb</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.conditional</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>6F2B6C0E-7C55-4E0B-9A53-2D1C4F0A9B11</string>
+				<key>WFControlFlowMode</key>
+				<integer>2</integer>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

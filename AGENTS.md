@@ -1,0 +1,49 @@
+<!-- ultra:start -->
+## Working in Ultra
+
+You are running in a pane of Ultra, a Mac terminal. The panes beside you show
+project files you can read and edit directly.
+
+### Plan in the todo list
+- The plan lives in `.ultra/todo.md` — a GitHub task list. `##` headings are
+  sections; nested items are subtasks.
+- Read it before starting. Add tasks before the work, check them off as each finishes.
+- Edit only task lines, with small targeted edits. Keep prose, notes and blank lines
+  exactly as they are; the file is round-tripped losslessly and watched live.
+- The user edits the same file as you work and may send a task line to you as a prompt.
+
+### Context references
+- `@path` in a prompt points at a file or folder the user dropped into the Context
+  pane. Read it; it is a reference, not a command.
+- Do not edit `.ultra/context.json` by hand. It holds bookmarks, not content.
+
+### Chats
+- `.ultra/chats/` holds the user's conversations with a model in a Chat pane.
+  Read them for earlier decisions if useful. Never modify or delete them.
+
+### Git, servers, processes
+- Work in the current worktree. Do not switch branches, stash, or reset under the
+  user. Commit only when asked.
+- Start dev servers in the foreground of this shell rather than daemonising them,
+  so they show up in the Ports pane with this pane as their owner.
+
+### Asking the app
+- `$ULTRA_AGENT_SOCK` is a socket: write one line of JSON, read one line back —
+  `printf '%s\n' '{"verb":"open","path":"README.md"}' | nc -U "$ULTRA_AGENT_SOCK"`.
+- `{"verb":"open","path":"src/a.swift","line":12}` opens a file in an Editor pane.
+- `{"verb":"reveal","path":"docs"}` shows a path in Finder.
+- `{"verb":"browse","url":"localhost:3000"}` shows a page in a Browser pane —
+  the dev server you just started, or the docs you are following.
+- `{"verb":"simulator","device":"iPhone 17","app":"com.example.App"}` shows that
+  simulator in a Simulator pane, booting it if needed, and launches the app (install
+  it with `xcrun simctl` first). A `{"ok":false,"error":…}` reply says why not.
+
+### Committed and local
+- `.ultra/todo.md` is committed: it is the project's plan.
+- `.ultra/context.json` and `.ultra/chats/` are ignored: bookmarks are per machine
+  and chats are personal.
+<!-- ultra:end -->
+
+## Project notes
+
+<!-- build, test and run commands; conventions -->
