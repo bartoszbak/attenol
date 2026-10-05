@@ -21,7 +21,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         refresh()
     }
 
-    // Quitting while started puts everything back first.
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         guard isActive else { return .terminateNow }
         isActive = false
@@ -50,8 +49,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.button?.image = Self.icon(filled: isActive)
     }
 
-    /// A filled disc when started, a ring when paused. Drawn by hand because SF Symbols
-    /// has no ring this thick, at the same 13 pt diameter as `circle.fill`.
     private static func icon(filled: Bool) -> NSImage {
         let outline = 2.5
         let image = NSImage(size: NSSize(width: 15, height: 15), flipped: false) { bounds in

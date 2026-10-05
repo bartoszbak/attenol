@@ -9,3 +9,10 @@
 - [x] Thicker outline for the empty (paused) circle icon
 - [x] Paused ring three times the regular outline
 - [x] Paused ring outline 2.5 pt
+
+## Release 1.0
+
+- [x] Add the official app icon
+- [ ] Sign with Developer ID and notarize
+- [ ] Build the DMG
+- [ ] Publish the GitHub release

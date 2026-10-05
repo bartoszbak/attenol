@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-	Source of the "Attenol Focus" shortcut:
-
-		If Shortcut Input has any value
-			Turn Do Not Disturb On until Turned Off
-		Otherwise
-			Turn Do Not Disturb Off
-
-	Shortcuts only imports signed files; see sign.sh.
--->
 <plist version="1.0">
 <dict>
 	<key>WFWorkflowMinimumClientVersion</key>
