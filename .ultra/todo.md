@@ -32,7 +32,7 @@
 - [x] End the "Attenol Focus" shortcut with Nothing so it returns no result
 - [x] Show "Attenol 1.0.11" in the menu instead of "Version …"
 - [x] Bump the version to 1.0.11
-- [ ] Commit and push to GitHub
-- [ ] Sign with Developer ID and notarize
-- [ ] Build the DMG
-- [ ] Publish the GitHub release
+- [x] Commit and push to GitHub
+- [x] Sign with Developer ID and notarize
+- [x] Build the DMG
+- [x] Publish the GitHub release
