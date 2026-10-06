@@ -17,7 +17,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         if let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
             menu.addItem(.separator())
-            menu.addItem(withTitle: "Version \(version)", action: nil, keyEquivalent: "")
+            menu.addItem(withTitle: "Attenol \(version)", action: nil, keyEquivalent: "")
         }
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
