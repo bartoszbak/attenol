@@ -15,4 +15,14 @@
 - [x] Add the official app icon
 - [x] Sign with Developer ID and notarize
 - [x] Build the DMG
+- [x] Publish the GitHub release
+
+## Version 1.0.1
+
+- [x] Left click switches Start / Pause, right click opens the menu
+- [x] Show the version in the menu
+- [x] Bump the version to 1.0.1
+- [ ] Commit and push to GitHub
+- [ ] Sign with Developer ID and notarize
+- [ ] Build the DMG
 - [ ] Publish the GitHub release

@@ -3,6 +3,7 @@ import AppKit
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
+    private let menu = NSMenu()
     private let toggleItem = NSMenuItem(title: "", action: #selector(toggle), keyEquivalent: "")
     private let desktop = BlackDesktop()
     private let focus = Focus()
@@ -11,13 +12,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         toggleItem.target = self
 
-        let menu = NSMenu()
         menu.addItem(toggleItem)
         menu.addItem(.separator())
         menu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        if let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
+            menu.addItem(.separator())
+            menu.addItem(withTitle: "Version \(version)", action: nil, keyEquivalent: "")
+        }
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-        statusItem.menu = menu
+        statusItem.button?.target = self
+        statusItem.button?.action = #selector(clicked)
+        statusItem.button?.sendAction(on: [.leftMouseUp, .rightMouseUp])
         refresh()
     }
 
@@ -31,6 +37,17 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             sender.reply(toApplicationShouldTerminate: true)
         }
         return .terminateLater
+    }
+
+    @objc private func clicked() {
+        let event = NSApp.currentEvent
+        if event?.type == .rightMouseUp || event?.modifierFlags.contains(.control) == true {
+            statusItem.menu = menu
+            statusItem.button?.performClick(nil)
+            statusItem.menu = nil
+        } else {
+            toggle()
+        }
     }
 
     @objc private func toggle() {
