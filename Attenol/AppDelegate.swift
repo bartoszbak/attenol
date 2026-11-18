@@ -8,11 +8,20 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private let desktop = BlackDesktop()
     private let focus = Focus()
     private var isActive = false
+    private var modeItems: [NSMenuItem] = []
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         toggleItem.target = self
 
         menu.addItem(toggleItem)
+        menu.addItem(.separator())
+        modeItems = HideMode.allCases.map { mode in
+            let item = NSMenuItem(title: mode.title, action: #selector(pickMode), keyEquivalent: "")
+            item.target = self
+            item.representedObject = mode
+            return item
+        }
+        modeItems.forEach(menu.addItem)
         menu.addItem(.separator())
         menu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         if let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
@@ -61,8 +70,17 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         refresh()
     }
 
+    @objc private func pickMode(_ item: NSMenuItem) {
+        guard let mode = item.representedObject as? HideMode else { return }
+        desktop.mode = mode
+        refresh()
+    }
+
     private func refresh() {
         toggleItem.title = isActive ? "Pause" : "Start"
+        for item in modeItems {
+            item.state = item.representedObject as? HideMode == desktop.mode ? .on : .off
+        }
         statusItem.button?.image = Self.icon(filled: isActive)
     }
 
