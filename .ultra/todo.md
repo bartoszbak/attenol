@@ -36,3 +36,16 @@
 - [x] Sign with Developer ID and notarize
 - [x] Build the DMG
 - [x] Publish the GitHub release
+
+## Version 1.1
+
+- [x] Menu choice of what to hide: wallpaper and icons, icons only, or wallpaper only
+  - [x] Icons only: cover the icons with a copy of the wallpaper
+  - [x] Wallpaper only: black cover below the desktop icons
+  - [x] Remember the choice between launches
+- [x] Bump the version to 1.1
+- [x] Build and install on this Mac
+- [x] Commit and push to GitHub
+- [x] Sign with Developer ID and notarize
+- [x] Build the DMG
+- [x] Publish the GitHub release
